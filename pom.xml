@@ -74,6 +74,35 @@
             <version>${junit.version}</version>
             <scope>test</scope>
         </dependency>
+        <dependency>
+            <groupId>org.postgresql</groupId>
+            <artifactId>postgresql</artifactId>
+            <version>42.7.1</version>
+        </dependency>
+
+        <dependency>
+            <groupId>eu.hansolo.fx</groupId>
+            <artifactId>countries</artifactId>
+            <version>21.0.3</version>
+        </dependency>
+
+        <dependency>
+            <groupId>eu.hansolo</groupId>
+            <artifactId>toolboxfx</artifactId>
+            <version>21.0.3</version>
+        </dependency>
+
+        <dependency>
+            <groupId>eu.hansolo</groupId>
+            <artifactId>toolbox</artifactId>
+            <version>21.0.5</version>
+        </dependency>
+
+        <dependency>
+            <groupId>org.openjfx</groupId>
+            <artifactId>javafx-swing</artifactId>
+            <version>22-ea+16</version>
+        </dependency>
     </dependencies>
 
     <build>

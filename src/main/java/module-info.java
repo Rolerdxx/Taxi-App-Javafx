@@ -7,6 +7,7 @@ module com.example.uberlike {
     requires com.dlsc.formsfx;
     requires org.kordamp.ikonli.javafx;
     requires eu.hansolo.tilesfx;
+    requires java.sql;
 
     opens com.example.uberlike to javafx.fxml;
     exports com.example.uberlike;
