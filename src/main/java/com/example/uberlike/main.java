@@ -9,7 +9,7 @@ import java.io.IOException;
 public class main extends Application {
     @Override
     public void start(Stage stage) throws IOException {
-        Database db = new Database();
+       // Database db = new Database();
         FXMLLoader fxmlLoader = new FXMLLoader(main.class.getResource("LoginPage.fxml"));
         LoginPage c = new LoginPage(stage);
         fxmlLoader.setController(c);
@@ -20,6 +20,8 @@ public class main extends Application {
     }
 
     public static void main(String[] args) {
-        launch(args);
+
+        SignUpPage.launch(SignUpPage.class, args);
     }
+
 }
