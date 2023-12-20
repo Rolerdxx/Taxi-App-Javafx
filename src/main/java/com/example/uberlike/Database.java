@@ -15,8 +15,8 @@ public class Database {
     public Database(){
         try {
             Class.forName("org.postgresql.Driver");
-            c = DriverManager.getConnection("jdbc:postgresql://localhost:5432/dbtest",
-                    "postgres", "123");
+            c = DriverManager.getConnection("jdbc:postgresql://localhost:5432/postgres",
+                    "postgres", "hamza2001");
             stmt = c.createStatement();
             String sql = "CREATE TABLE IF NOT EXISTS USERR " +
                     "(ID SERIAL PRIMARY KEY    NOT NULL," +
@@ -32,5 +32,8 @@ public class Database {
             System.exit(0);
         }
         System.out.println("Opened database successfully and table created");
+    }
+
+    public void createUser(String name, String email, String password, String type) {
     }
 }
