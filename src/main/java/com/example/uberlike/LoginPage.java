@@ -6,13 +6,17 @@ import javafx.scene.Scene;
 import javafx.scene.control.Label;
 import javafx.stage.Stage;
 import java.io.IOException;
+import java.sql.SQLException;
 
 public class LoginPage {
+
+    private Database db;
     @FXML
     private Stage primalstage;
 
-    public LoginPage(Stage s){
+    public LoginPage(Stage s ,Database dbb){
         primalstage = s;
+        db = dbb;
     }
 
     @FXML
@@ -24,12 +28,12 @@ public class LoginPage {
     }
 
     @FXML
-    protected void goNext() throws IOException {
-        FXMLLoader fxmlLoader = new FXMLLoader(main.class.getResource("SignUpPage.fxml"));
+    protected void goNext() throws IOException, SQLException {
+        FXMLLoader fxmlLoader = new FXMLLoader(main.class.getResource("SignupPage.fxml"));
 
 
         Stage stage = new Stage();
-        SignUpPage newController = new SignUpPage(stage, primalstage);
+        SignupPage newController = new SignupPage();
         fxmlLoader.setController(newController);
         Scene scene = new Scene(fxmlLoader.load(), 320, 240);
         stage.setTitle("Hello!222");

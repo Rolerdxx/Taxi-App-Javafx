@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.web.*?>
+
+<AnchorPane fx:id="win2" prefHeight="524.0" prefWidth="720.0" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1">
+   <children>
+      <Button fx:id="btnClose" layoutX="176.0" layoutY="130.0" mnemonicParsing="false" text="BACK" />
+      <WebView fx:id="map1" layoutX="222.0" layoutY="44.0" prefHeight="448.0" prefWidth="487.0" />
+      <Button fx:id="btn2" layoutX="74.0" layoutY="230.0" mnemonicParsing="false" onAction="#openmapa" text="open map" />
+   </children>
+</AnchorPane>
