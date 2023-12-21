@@ -1,7 +1,7 @@
 package com.example.uberlike;
+
 import java.sql.Connection;
 import java.sql.DriverManager;
-import java.sql.ResultSet;
 import java.sql.Statement;
 
 public class Database {
@@ -16,7 +16,7 @@ public class Database {
         try {
             Class.forName("org.postgresql.Driver");
             c = DriverManager.getConnection("jdbc:postgresql://localhost:5432/postgres",
-                    "postgres", "hamza2001");
+                    "postgres", "123");
             stmt = c.createStatement();
             String sql = "CREATE TABLE IF NOT EXISTS USERR " +
                     "(ID SERIAL PRIMARY KEY    NOT NULL," +

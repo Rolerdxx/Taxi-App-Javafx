@@ -4,7 +4,7 @@
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.text.*?>
 
-<AnchorPane fx:controller="com.example.uberlike.SignupPage" xmlns:fx="http://javafx.com/fxml">
+<AnchorPane xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1">
 <AnchorPane prefHeight="400.0" prefWidth="520.0" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1">
    <children>
       <Label fx:id="name" layoutX="50.0" layoutY="100.0" text="Name">
@@ -36,10 +36,10 @@
             <Font size="18.0" />
          </font>
       </Label>
-      <TextField fx:id="inputname" layoutX="150.0" layoutY="100.0" />
-      <TextField fx:id="inputemail" layoutX="150.0" layoutY="150.0" />
-      <TextField fx:id="inputpassword" layoutX="150.0" layoutY="200.0" />
-      <Button fx:id="btnregister" layoutX="200.0" layoutY="340.0" mnemonicParsing="false" text="Register" onAction="#signUp" >
+      <TextField fx:id="inputName" layoutX="150.0" layoutY="100.0" />
+      <TextField fx:id="inputEmail" layoutX="150.0" layoutY="150.0" />
+      <TextField fx:id="inputPassword" layoutX="150.0" layoutY="200.0" />
+      <Button fx:id="btnregister" layoutX="200.0" layoutY="340.0" mnemonicParsing="false" onAction="#signUp" text="Register">
          <font>
             <Font name="Bell MT Bold" size="19.0" />
          </font></Button>
@@ -48,12 +48,12 @@
             <Font name="Bell MT Bold" size="19.0" />
          </font>
       </Button>
-      <RadioButton layoutX="150.0" layoutY="250.0" mnemonicParsing="false" text="Driver">
+      <RadioButton fx:id="driverRadio" layoutX="150.0" layoutY="250.0" mnemonicParsing="false" text="Driver">
          <font>
             <Font size="18.0" />
          </font>
       </RadioButton>
-      <RadioButton layoutX="250.0" layoutY="250.0" mnemonicParsing="false" text="Passenger">
+      <RadioButton fx:id="passengerRadio" layoutX="250.0" layoutY="250.0" mnemonicParsing="false" text="Passenger">
          <font>
             <Font size="18.0" />
          </font>
