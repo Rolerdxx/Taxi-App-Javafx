@@ -11,6 +11,7 @@ module com.example.uberlike {
         requires eu.hansolo.tilesfx;
         requires java.sql;
         requires org.postgresql.jdbc;
+        requires org.json;
 
 
         opens com.example.uberlike to javafx.fxml;

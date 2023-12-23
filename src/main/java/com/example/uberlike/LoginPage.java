@@ -23,8 +23,21 @@ public class LoginPage {
     private Label welcomeText;
 
     @FXML
-    protected void onHelloButtonClick() {
-        welcomeText.setText("3la slamtek");
+    protected void onHelloButtonClick() throws IOException, SQLException {
+        FXMLLoader fxmlLoader = new FXMLLoader(main.class.getResource("ClientPage.fxml"));
+
+
+        Stage stage = new Stage();
+        ClientPage newController = new ClientPage(primalstage,stage,db);
+        fxmlLoader.setController(newController);
+        Scene scene = new Scene(fxmlLoader.load(), 320, 240);
+        stage.setTitle("Hello!222");
+        stage.setScene(scene);
+        newController.Initiate();
+
+
+        stage.show();
+        primalstage.hide();
     }
 
     @FXML

@@ -10,6 +10,6 @@
     </padding>
 
     <Label fx:id="welcomeText" />
-    <Button onAction="#onHelloButtonClick" prefHeight="46.0" prefWidth="99.0" text="Hello!" />
+    <Button onAction="#onHelloButtonClick" prefHeight="46.0" prefWidth="99.0" text="showmap" />
    <Button fx:id="b2" mnemonicParsing="false" onAction="#goNext" text="Signup" />
 </VBox>

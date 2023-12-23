@@ -4,10 +4,15 @@
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.web.*?>
 
-<AnchorPane fx:id="win2" prefHeight="524.0" prefWidth="720.0" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1">
+<AnchorPane fx:id="win2" prefHeight="524.0" prefWidth="884.0" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1">
    <children>
-      <Button fx:id="btnClose" layoutX="176.0" layoutY="130.0" mnemonicParsing="false" text="BACK" />
-      <WebView fx:id="map1" layoutX="222.0" layoutY="44.0" prefHeight="448.0" prefWidth="487.0" />
-      <Button fx:id="btn2" layoutX="74.0" layoutY="230.0" mnemonicParsing="false" onAction="#openmapa" text="open map" />
+      <WebView fx:id="map1" layoutX="370.0" layoutY="38.0" prefHeight="467.0" prefWidth="504.0" />
+      <RadioButton fx:id="bikerad" layoutX="212.0" layoutY="254.0" mnemonicParsing="false" text="Bike" />
+      <RadioButton fx:id="carrad" layoutX="87.0" layoutY="254.0" mnemonicParsing="false" text="Car" />
+      <Label layoutX="87.0" layoutY="75.0" prefHeight="17.0" prefWidth="39.0" text="Origin" />
+      <Label layoutX="92.0" layoutY="150.0" text="Destination" />
+      <ComboBox fx:id="origintxt" editable="true" layoutX="78.0" layoutY="110.0" onKeyReleased="#origintyped" prefHeight="25.0" prefWidth="243.0" />
+      <ComboBox fx:id="destxt" editable="true" layoutX="78.0" layoutY="192.0" onKeyReleased="#destyped" prefHeight="25.0" prefWidth="243.0" />
+      <Button fx:id="requestridebtn" layoutX="133.0" layoutY="299.0" mnemonicParsing="false" onAction="#requestride" prefHeight="25.0" prefWidth="147.0" text="REQUEST RIDE" />
    </children>
 </AnchorPane>
