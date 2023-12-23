@@ -8,7 +8,18 @@
       </list>
     </option>
   </component>
-  <component name="ProjectRootManager" version="2" languageLevel="JDK_20" project-jdk-name="openjdk-21" project-jdk-type="JavaSDK">
+
+  <component name="ProjectResources">
+    <resource url="http://exslt.org/common" location="$PROJECT_DIR$" />
+    <resource url="http://exslt.org/dates-and-times" location="$PROJECT_DIR$" />
+    <resource url="http://exslt.org/dynamic" location="$PROJECT_DIR$" />
+    <resource url="http://exslt.org/math" location="$PROJECT_DIR$" />
+    <resource url="http://exslt.org/sets" location="$PROJECT_DIR$" />
+    <resource url="http://exslt.org/strings" location="$PROJECT_DIR$" />
+    <resource url="http://relaxng.org/ns/compatibility/annotations/1.0" location="$PROJECT_DIR$" />
+    <resource url="urn:idea:xslt-plugin#extensions" location="$PROJECT_DIR$" />
+  </component>
+  <component name="ProjectRootManager" version="2" languageLevel="JDK_21" default="true" project-jdk-name="openjdk-21" project-jdk-type="JavaSDK">
     <output url="file://$PROJECT_DIR$/out" />
   </component>
 </project>
