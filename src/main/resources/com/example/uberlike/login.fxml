@@ -1,14 +1,38 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import java.lang.*?>
-<?import java.util.*?>
-<?import javafx.scene.*?>
 <?import javafx.scene.control.*?>
+<?import javafx.scene.image.*?>
 <?import javafx.scene.layout.*?>
+<?import javafx.scene.shape.*?>
 
-<AnchorPane xmlns="http://javafx.com/javafx"
-            xmlns:fx="http://javafx.com/fxml"
-            fx:controller="$CONTROLLER_NAME$"
-            prefHeight="400.0" prefWidth="600.0" >
+<AnchorPane prefHeight="400.0" prefWidth="600.0" stylesheets="@../media/style.css" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.uberlike.Login">
+   <children>
+      <!-- Rectangle with shadow -->
+      <Rectangle fx:id="backgroundRectangle" arcHeight="5.0" arcWidth="5.0" fill="#f6fbff8c" height="323.0" layoutX="292.0" layoutY="51.0" stroke="BLACK" strokeType="INSIDE" styleClass="box-shadow" width="275.0" />
 
+      <!-- Password field -->
+      <PasswordField fx:id="passwordField" layoutX="315.0" layoutY="132.0" prefHeight="44.0" prefWidth="228.0" promptText="Password" styleClass="input-field" />
+
+      <!-- Email field -->
+      <TextField fx:id="emailField" layoutX="315.0" layoutY="68.0" prefHeight="44.0" prefWidth="228.0" promptText="Email address" styleClass="input-field" />
+
+      <!-- Login button -->
+      <Button fx:id="loginButton" layoutX="316.0" layoutY="200.0" mnemonicParsing="false" prefHeight="44.0" prefWidth="228.0" styleClass="button-taxi" text="Log in" />
+
+      <!-- Forgotten password hyperlink -->
+      <Hyperlink fx:id="forgotPasswordLink" layoutX="369.0" layoutY="254.0" text="Forgotten password?" />
+
+      <!-- Separator line -->
+      <Line fx:id="separatorLine" endX="100.0" layoutX="438.0" layoutY="290.0" startX="-100.0" stroke="#cfcfcf" />
+
+      <!-- Create account button -->
+      <Button fx:id="createAccountButton" layoutX="315.0" layoutY="309.0" mnemonicParsing="false" prefHeight="44.0" prefWidth="228.0" styleClass="button-taxi" text="Create new account" />
+
+      <!-- Logo image view -->
+      <ImageView fx:id="logoImageView" fitHeight="345.0" fitWidth="300.0" layoutY="27.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../media/logo.png" />
+         </image>
+      </ImageView>
+   </children>
 </AnchorPane>
