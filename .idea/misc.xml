@@ -8,6 +8,7 @@
       </list>
     </option>
   </component>
+
   <component name="ProjectResources">
     <resource url="http://exslt.org/common" location="$PROJECT_DIR$" />
     <resource url="http://exslt.org/dates-and-times" location="$PROJECT_DIR$" />
