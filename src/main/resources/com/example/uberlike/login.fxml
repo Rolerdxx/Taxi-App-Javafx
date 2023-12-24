@@ -5,7 +5,7 @@
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.shape.*?>
 
-<AnchorPane prefHeight="400.0" prefWidth="600.0" stylesheets="@../media/style.css" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.uberlike.Login">
+<AnchorPane prefHeight="400.0" prefWidth="600.0" stylesheets="@../media/style.css" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.uberlike.LoginPage">
    <children>
       <!-- Rectangle with shadow -->
       <Rectangle fx:id="backgroundRectangle" arcHeight="5.0" arcWidth="5.0" fill="#f6fbff8c" height="323.0" layoutX="292.0" layoutY="51.0" stroke="BLACK" strokeType="INSIDE" styleClass="box-shadow" width="275.0" />

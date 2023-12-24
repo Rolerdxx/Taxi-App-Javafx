@@ -1,8 +1,8 @@
 package com.example.uberlike;
 
-import java.sql.Connection;
-import java.sql.DriverManager;
-import java.sql.Statement;
+import javafx.scene.control.Alert;
+
+import java.sql.*;
 
 public class Database {
     private Connection c;
@@ -16,7 +16,7 @@ public class Database {
         try {
             Class.forName("org.postgresql.Driver");
             c = DriverManager.getConnection("jdbc:postgresql://localhost:5432/postgres",
-                    "postgres", "123");
+                    "postgres", "hamza2001");
             stmt = c.createStatement();
             String sql = "CREATE TABLE IF NOT EXISTS USERR " +
                     "(ID SERIAL PRIMARY KEY    NOT NULL," +
@@ -35,5 +35,19 @@ public class Database {
     }
 
     public void createUser(String name, String email, String password, String type) {
+        try {
+            String sql = "INSERT INTO USERR (NAME, EMAIL, PASSWORD, TYPE) VALUES (?, ?, ?, ?)";
+            PreparedStatement pstmt = c.prepareStatement(sql);
+            pstmt.setString(1, name);
+            pstmt.setString(2, email);
+            pstmt.setString(3, password);
+            pstmt.setString(4, type);
+            pstmt.executeUpdate();
+            pstmt.close();
+        } catch (SQLException e) {
+            e.printStackTrace();
+
+        }
     }
+
 }
