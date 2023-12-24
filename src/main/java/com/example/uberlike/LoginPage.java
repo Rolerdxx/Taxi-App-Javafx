@@ -43,12 +43,10 @@ public class LoginPage {
     @FXML
     protected void goNext() throws IOException, SQLException {
         FXMLLoader fxmlLoader = new FXMLLoader(main.class.getResource("SignupPage.fxml"));
-
-
         Stage stage = new Stage();
         SignupPage newController = new SignupPage(db,stage);
         fxmlLoader.setController(newController);
-        Scene scene = new Scene(fxmlLoader.load(), 320, 240);
+        Scene scene = new Scene(fxmlLoader.load(), 520, 400);
         stage.setTitle("Hello!222");
         stage.setScene(scene);
 
@@ -56,14 +54,6 @@ public class LoginPage {
         stage.show();
         primalstage.hide();
 
-//
 
-//        loader.setController(newController);
-//
-//        Scene scene = new Scene(loader.load(), 300, 200);
-//        newStage.setScene(scene);
-//
-//        newStage.initModality(Modality.APPLICATION_MODAL);
-//        newStage.show();
     }
 }

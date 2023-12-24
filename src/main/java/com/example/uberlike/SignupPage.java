@@ -4,29 +4,33 @@ import javafx.fxml.FXML;
 import javafx.scene.control.Alert;
 import javafx.scene.control.RadioButton;
 import javafx.scene.control.TextField;
+import javafx.scene.control.ToggleGroup;
 import javafx.stage.Stage;
 
 import java.sql.SQLException;
 
 public class SignupPage {
 
-    private Database db;
-    private Stage stage;
+    public Database db;
+    public Stage stage;
 
     @FXML
-    private TextField inputName;
+    public TextField inputName;
 
     @FXML
-    private TextField inputEmail;
+    public TextField inputEmail;
 
     @FXML
-    private TextField inputPassword;
+    public TextField inputPassword;
 
     @FXML
-    private RadioButton driverRadio;
+    public RadioButton driverRadio;
 
     @FXML
-    private RadioButton passengerRadio;
+    public RadioButton passengerRadio;
+
+    @FXML
+    private ToggleGroup userTypeToggleGroup;
 
     public SignupPage(Database db, Stage stage) {
         this.db = db;
@@ -34,11 +38,19 @@ public class SignupPage {
     }
 
     @FXML
+    public void initialize() {
+        userTypeToggleGroup = new ToggleGroup(); // Initializing the ToggleGroup
+        driverRadio.setToggleGroup(userTypeToggleGroup);
+        passengerRadio.setToggleGroup(userTypeToggleGroup);
+    }
+
+    @FXML
     protected void signUp() throws SQLException {
         String name = inputName.getText();
         String email = inputEmail.getText();
         String password = inputPassword.getText();
-        String type = (driverRadio.isSelected()) ? "Driver" : "Passenger";
+        RadioButton selectedRadioButton = (RadioButton) userTypeToggleGroup.getSelectedToggle();
+        String type = (selectedRadioButton != null) ? selectedRadioButton.getText() : "";
 
         if (name.isEmpty() || email.isEmpty() || password.isEmpty()) {
             showAlert("All fields are required.");
@@ -55,10 +67,9 @@ public class SignupPage {
             return;
         }
 
-
         db.createUser(name, email, password, type);
 
-        closeWindow();
+        showAlert("Account Registred");
     }
 
     private void showAlert(String message) {
@@ -69,7 +80,8 @@ public class SignupPage {
         alert.showAndWait();
     }
 
-    private void closeWindow() {
+    @FXML
+    protected void closeWindow() {
         stage.close();
     }
 
