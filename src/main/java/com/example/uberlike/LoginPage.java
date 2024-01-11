@@ -46,7 +46,7 @@ public class LoginPage {
         Stage stage = new Stage();
         SignupPage newController = new SignupPage(db,stage);
         fxmlLoader.setController(newController);
-        Scene scene = new Scene(fxmlLoader.load(), 520, 400);
+        Scene scene = new Scene(fxmlLoader.load(), 633, 487);
         stage.setTitle("Hello!222");
         stage.setScene(scene);
 
