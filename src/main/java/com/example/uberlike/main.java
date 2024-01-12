@@ -12,13 +12,14 @@ public class main extends Application {
     public void start(Stage stage) throws IOException {
         Database db = new Database();
         FXMLLoader fxmlLoader = new FXMLLoader(main.class.getResource("LoginPage.fxml"));
-        LoginPage c = new LoginPage(stage, db);
+        LoginPage c = new LoginPage(db, stage);
         fxmlLoader.setController(c);
         Scene scene = new Scene(fxmlLoader.load(), 800, 400);
         stage.setTitle("Hello!");
         stage.setScene(scene);
         stage.show();
     }
+
 
     public static void main(String[] args) {
         launch(args);

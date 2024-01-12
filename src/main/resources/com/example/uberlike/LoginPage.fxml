@@ -28,7 +28,7 @@
         <TextField fx:id="emailField" layoutX="315.0" layoutY="68.0" prefHeight="44.0" prefWidth="228.0" promptText="Email address" styleClass="input-field" />
 
         <!-- Login button -->
-        <Button fx:id="loginButton" onAction="#onHelloButtonClick" layoutX="316.0" layoutY="200.0" mnemonicParsing="false" prefHeight="44.0" prefWidth="228.0" styleClass="button-taxi" text="Log in" />
+        <Button fx:id="loginButton" onAction="#onLoginButtonClick" layoutX="316.0" layoutY="200.0" mnemonicParsing="false" prefHeight="44.0" prefWidth="228.0" styleClass="button-taxi" text="Log in" />
 
         <!-- Forgotten password hyperlink -->
         <Hyperlink fx:id="forgotPasswordLink" layoutX="369.0" layoutY="254.0" text="Forgotten password?" />
