@@ -12,8 +12,9 @@ module com.example.uberlike {
         requires java.sql;
         requires org.postgresql.jdbc;
         requires org.json;
+    requires jbcrypt;
 
 
-        opens com.example.uberlike to javafx.fxml;
+    opens com.example.uberlike to javafx.fxml;
         exports com.example.uberlike;
         }

@@ -35,7 +35,7 @@ public class UserController {
             ps.setString(2, pass);
             ResultSet rs = ps.executeQuery();
             if (rs.next()){
-                return new User(rs.getInt("ID"),rs.getString("NAME"),rs.getString("EMAIL"),rs.getString("PASSWORD"),rs.getString("TYPE"));
+                return new User(rs.getInt("ID"),rs.getString("NAME"),rs.getString("EMAIL"),rs.getString("PASSWORD"),rs.getString("TYPE"),rs.getInt("PHONE"));
             }else {
                 return null;
             }
