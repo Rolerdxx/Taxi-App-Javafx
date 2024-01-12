@@ -1,15 +1,49 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import javafx.geometry.*?>
+<?import javafx.scene.image.*?>
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
+<?import javafx.scene.shape.*?>
 
-<VBox fx:id="win1" alignment="CENTER" prefHeight="223.0" prefWidth="255.0" spacing="20.0" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1">
-    <padding>
-        <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
-    </padding>
+<!--<VBox fx:id="win1" alignment="CENTER" prefHeight="223.0" prefWidth="255.0" spacing="20.0" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1">-->
+<!--    <padding>-->
+<!--        <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />-->
+<!--    </padding>-->
 
-    <Label fx:id="welcomeText" />
-    <Button onAction="#onHelloButtonClick" prefHeight="46.0" prefWidth="99.0" text="showmap" />
-   <Button fx:id="b2" mnemonicParsing="false" onAction="#goNext" text="Signup" />
-</VBox>
+<!--    <Label fx:id="welcomeText" />-->
+<!--    <Button onAction="#onHelloButtonClick" prefHeight="46.0" prefWidth="99.0" text="showmap" />-->
+<!--   <Button fx:id="b2" mnemonicParsing="false" onAction="#goNext" text="Signup" />-->
+<!--</VBox>-->
+
+<AnchorPane prefHeight="400.0" prefWidth="600.0" stylesheets="@../media/style.css" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1">
+    <children>
+        <!-- Rectangle with shadow -->
+        <Rectangle fx:id="backgroundRectangle" arcHeight="5.0" arcWidth="5.0" fill="#f6fbff8c" height="323.0" layoutX="292.0" layoutY="51.0" stroke="BLACK" strokeType="INSIDE" styleClass="box-shadow" width="275.0" />
+
+        <!-- Password field -->
+        <PasswordField fx:id="passwordField" layoutX="315.0" layoutY="132.0" prefHeight="44.0" prefWidth="228.0" promptText="Password" styleClass="input-field" />
+
+        <!-- Email field -->
+        <TextField fx:id="emailField" layoutX="315.0" layoutY="68.0" prefHeight="44.0" prefWidth="228.0" promptText="Email address" styleClass="input-field" />
+
+        <!-- Login button -->
+        <Button fx:id="loginButton" onAction="#onHelloButtonClick" layoutX="316.0" layoutY="200.0" mnemonicParsing="false" prefHeight="44.0" prefWidth="228.0" styleClass="button-taxi" text="Log in" />
+
+        <!-- Forgotten password hyperlink -->
+        <Hyperlink fx:id="forgotPasswordLink" layoutX="369.0" layoutY="254.0" text="Forgotten password?" />
+
+        <!-- Separator line -->
+        <Line fx:id="separatorLine" endX="100.0" layoutX="438.0" layoutY="290.0" startX="-100.0" stroke="#cfcfcf" />
+
+        <!-- Create account button -->
+        <Button fx:id="createAccountButton" onAction="#goNext" layoutX="315.0" layoutY="309.0" mnemonicParsing="false" prefHeight="44.0" prefWidth="228.0" styleClass="button-taxi" text="Create new account" />
+
+        <!-- Logo image view -->
+        <ImageView fx:id="logoImageView" fitHeight="345.0" fitWidth="300.0" layoutY="27.0" pickOnBounds="true" preserveRatio="true">
+            <image>
+                <Image url="@../media/logo.png" />
+            </image>
+        </ImageView>
+    </children>
+</AnchorPane>
