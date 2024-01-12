@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.shape.*?>
+<?import javafx.scene.web.*?>
+
+<AnchorPane fx:id="driverPage" prefHeight="434.0" prefWidth="876.0" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1">
+    <children>
+        <WebView fx:id="map" layoutX="0.0" layoutY="0.0" prefHeight="434.0" prefWidth="876.0" />
+        <VBox fx:id="passengerOfferPanel" alignment="CENTER" layoutX="114.0" layoutY="259.0" prefHeight="150.0" prefWidth="230.0" spacing="10.0">
+            <children>
+                <HBox alignment="CENTER_LEFT" spacing="10.0" />
+            </children>
+        </VBox>
+        <Rectangle arcHeight="10.0" arcWidth="10.0" fill="#f7fcffcb" height="371.0" layoutX="72.0" layoutY="17.0" stroke="BLACK" strokeType="INSIDE" styleClass="box-shadow" width="314.0" />
+          <HBox alignment="CENTER_LEFT" layoutX="183.0" layoutY="31.0" spacing="10.0" />
+           <Label layoutX="112.0" layoutY="89.0" text="Destination:" />
+          <Label layoutX="166.0" layoutY="19.0" style="-fx-font-size: 16; -fx-font-weight: bold;" text="Passenger Offers" />
+           <Label layoutX="184.0" layoutY="88.0" text="Airport" />
+           <Label layoutX="172.0" layoutY="62.0" text="John Doe" />
+           <Label layoutX="109.0" layoutY="62.0" text="Name:" />
+          <Button layoutX="269.0" layoutY="72.0" style="-fx-background-color: #4CAF50; -fx-text-fill: white;" text="Accept Offer" />
+    </children>
+</AnchorPane>
