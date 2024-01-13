@@ -52,7 +52,7 @@ public class LoginPage {
         String email = emailField.getText();
         String password = passwordField.getText();
         if (authenticateUser(email, password)) {
-            String userType = getUserType(email); // New method to get the user type
+            String userType = getUserType(email);
 
             FXMLLoader fxmlLoader;
             Scene scene;
