@@ -25,22 +25,22 @@ public class LoginPage {
     @FXML
     protected void onHelloButtonClick() throws IOException, SQLException {
 
+        //  FXMLLoader fxmlLoader = new FXMLLoader(main.class.getResource("ClientPage.fxml"));
+        //  Stage stage = new Stage();
+        //  ClientPage newController = new ClientPage(primalstage,stage,db);
+        //  fxmlLoader.setController(newController);
+        //  Scene scene = new Scene(fxmlLoader.load());
+        //  stage.setTitle("Hello!222");
+        //  stage.setScene(scene);
+        //  newController.Initiate();
 
-        // //////////////////////////////
-
-
-        FXMLLoader fxmlLoader = new FXMLLoader(main.class.getResource("ClientPage.fxml"));
-
-
+        FXMLLoader fxmlLoader = new FXMLLoader(main.class.getResource("DriverPage.fxml"));
         Stage stage = new Stage();
-        ClientPage newController = new ClientPage(primalstage,stage,db);
-        fxmlLoader.setController(newController);
-        Scene scene = new Scene(fxmlLoader.load());
-        stage.setTitle("Hello!222");
+        DriverPage controller = new DriverPage();
+        fxmlLoader.setController(controller);
+        Scene scene = new Scene(fxmlLoader.load(), 800, 400);
+        stage.setTitle("Driver Page");
         stage.setScene(scene);
-        newController.Initiate();
-
-
         stage.show();
         primalstage.hide();
     }
