@@ -12,12 +12,27 @@ public class Database {
         return c;
     }
 
-    public Database(){
+    public Database() {
         try {
             Class.forName("org.postgresql.Driver");
             c = DriverManager.getConnection("jdbc:postgresql://localhost:5432/postgres",
                     "postgres", "postgres");
             stmt = c.createStatement();
+
+            createUsersTable();
+            createRidesTable();
+
+            stmt.close();
+        } catch (Exception e) {
+            e.printStackTrace();
+            System.err.println(e.getClass().getName() + ": " + e.getMessage());
+            System.exit(0);
+        }
+        System.out.println("Opened database successfully and tables created");
+    }
+
+    private void createUsersTable() {
+        try {
             String sql = "CREATE TABLE IF NOT EXISTS USERR (" +
                     "ID SERIAL PRIMARY KEY NOT NULL, " +
                     "NAME TEXT NOT NULL, " +
@@ -26,14 +41,42 @@ public class Database {
                     "TYPE TEXT NOT NULL, " +
                     "PHONE INT NOT NULL)";
             stmt.executeUpdate(sql);
-            stmt.close();
-        } catch (Exception e) {
+            System.out.println("USERR table created successfully");
+        } catch (SQLException e) {
             e.printStackTrace();
-            System.err.println(e.getClass().getName()+": "+e.getMessage());
-            System.exit(0);
+            System.err.println(e.getClass().getName() + ": " + e.getMessage());
         }
-        System.out.println("Opened database successfully and table created");
     }
+
+    private void createRidesTable() {
+        try {
+            String sql = "CREATE TABLE IF NOT EXISTS RIDES(" +
+                    "ID SERIAL PRIMARY KEY NOT NULL, " +
+                    " PASSENGER TEXT NOT NULL, " +
+                    " DESTINATION TEXT NOT NULL)";
+            stmt.executeUpdate(sql);
+            System.out.println("RIDES table created successfully");
+        } catch (SQLException e) {
+            e.printStackTrace();
+            System.err.println(e.getClass().getName() + ": " + e.getMessage());
+        }
+    }
+
+    public void AddRides(String passenger, String destination) {
+        try {
+            String sql = "INSERT INTO RIDES (PASSENGER, DESTINATION) VALUES (?, ?)";
+            PreparedStatement pstmt = c.prepareStatement(sql);
+            pstmt.setString(1, passenger);
+            pstmt.setString(2, destination);
+            pstmt.executeUpdate();
+            pstmt.close();
+
+        } catch (SQLException e) {
+            e.printStackTrace();
+
+        }
+    }
+
 
     public void createUser(String name, String email, String password, String type , int phone) {
         try {

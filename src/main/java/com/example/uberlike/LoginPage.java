@@ -24,6 +24,7 @@ public class LoginPage {
     @FXML
     private PasswordField passwordField;
 
+
     public LoginPage(Database db, Stage primalStage) {
         this.db = db;
         this.primalStage = primalStage;
@@ -89,6 +90,7 @@ public class LoginPage {
     private boolean isValidEmail(String email) {
         String emailRegex = "^[A-Za-z0-9+_.-]+@(.+)$";
         return email.matches(emailRegex);
+
     }
 
     @FXML

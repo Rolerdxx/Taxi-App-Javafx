@@ -1,0 +1,29 @@
+/* styles.css */
+
+.ride-cards-container {
+    -fx-spacing: 20;
+}
+
+.ride-card {
+    -fx-padding: 10;
+    -fx-border-color: #000000;
+    -fx-border-width: 1;
+    -fx-border-radius: 5;
+    -fx-background-color: #FFA500;
+}
+
+.passenger-label {
+    -fx-font-weight: bold;
+}
+
+.destination-label {
+    -fx-font-style: italic;
+}
+
+.accept-button {
+    -fx-background-color: #4CAF50;
+    -fx-text-fill: white;
+}
+.accept-button:hover {
+    -fx-background-color: lightgreen;
+}
