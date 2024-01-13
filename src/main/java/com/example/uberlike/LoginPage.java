@@ -30,39 +30,58 @@ public class LoginPage {
         this.primalStage = primalStage;
     }
 
+    private String getUserType(String email) throws SQLException {
+        String userType = null;
+        String sql = "SELECT TYPE FROM USERR WHERE EMAIL = ?";
+        try (PreparedStatement pstmt = Database.c.prepareStatement(sql)) {
+            pstmt.setString(1, email);
+            try (ResultSet resultSet = pstmt.executeQuery()) {
+                if (resultSet.next()) {
+                    userType = resultSet.getString("TYPE");
+                    System.out.println("Fetched user type: " + userType);
+                }
+            }
+        }
+        return userType;
+    }
+
+
+
     @FXML
     protected void onLoginButtonClick() throws IOException, SQLException {
         String email = emailField.getText();
         String password = passwordField.getText();
-
-        if (email.isEmpty() || password.isEmpty()) {
-            showAlert("Email and Password are required.");
-            return;
-        }
-
-        if (!isValidEmail(email)) {
-            showAlert("Invalid email format.");
-            return;
-        }
-
         if (authenticateUser(email, password)) {
-            // User authentication successful, proceed to ClientPage
-            FXMLLoader fxmlLoader = new FXMLLoader(main.class.getResource("ClientPage.fxml"));
-            Stage stage = new Stage();
-            ClientPage newController = new ClientPage(primalStage, stage, db);
-            fxmlLoader.setController(newController);
-            Scene scene = new Scene(fxmlLoader.load());
-            stage.setTitle("Hello!222");
-            stage.setScene(scene);
-            newController.Initiate();
+            String userType = getUserType(email);
 
+            FXMLLoader fxmlLoader;
+            Scene scene;
+            Stage stage = new Stage();
+
+            if ("Passenger".equals(userType)) {
+                fxmlLoader = new FXMLLoader(main.class.getResource("ClientPage.fxml"));
+                ClientPage clientController = new ClientPage(primalStage, stage, db);
+                fxmlLoader.setController(clientController);
+                scene = new Scene(fxmlLoader.load());
+                clientController.Initiate();
+            } else if ("Driver".equals(userType)) {
+                fxmlLoader = new FXMLLoader(main.class.getResource("DriverPage.fxml"));
+                DriverPage driverController = new DriverPage();
+                fxmlLoader.setController(driverController);
+                scene = new Scene(fxmlLoader.load());
+            } else {
+                showAlert("User type not recognized.");
+                return;
+            }
+
+            stage.setTitle("Welcome!");
+            stage.setScene(scene);
             stage.show();
-            primalStage.hide(); // Hides the login stage
+            primalStage.hide();
         } else {
             showAlert("Invalid email or password.");
         }
     }
-
 
     private boolean authenticateUser(String email, String password) throws SQLException {
         String sql = "SELECT PASSWORD FROM USERR WHERE EMAIL = ?";
@@ -73,7 +92,7 @@ public class LoginPage {
         if (resultSet.next()) {
             String hashedPassword = resultSet.getString("PASSWORD");
             pstmt.close();
-            return BCrypt.checkpw(password, hashedPassword); // Correctly using BCrypt to compare the password
+            return BCrypt.checkpw(password, hashedPassword);
         }
 
         pstmt.close();
