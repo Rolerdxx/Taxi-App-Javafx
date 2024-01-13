@@ -45,7 +45,6 @@ public class LoginPage {
         }
 
         if (authenticateUser(email, password)) {
-            // User authentication successful, proceed to ClientPage
             FXMLLoader fxmlLoader = new FXMLLoader(main.class.getResource("ClientPage.fxml"));
             Stage stage = new Stage();
             ClientPage newController = new ClientPage(primalStage, stage, db);
@@ -56,7 +55,7 @@ public class LoginPage {
             newController.Initiate();
 
             stage.show();
-            primalStage.hide(); // Hides the login stage
+            primalStage.hide();
         } else {
             showAlert("Invalid email or password.");
         }
@@ -72,7 +71,7 @@ public class LoginPage {
         if (resultSet.next()) {
             String hashedPassword = resultSet.getString("PASSWORD");
             pstmt.close();
-            return BCrypt.checkpw(password, hashedPassword); // Correctly using BCrypt to compare the password
+            return BCrypt.checkpw(password, hashedPassword);
         }
 
         pstmt.close();
