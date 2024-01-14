@@ -1,12 +1,16 @@
 package com.example.uberlike;
 
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Scene;
 import javafx.scene.control.Alert;
 import javafx.scene.control.RadioButton;
 import javafx.scene.control.TextField;
 import javafx.scene.control.ToggleGroup;
 import javafx.stage.Stage;
 import org.mindrot.jbcrypt.BCrypt;
+
+import java.io.IOException;
 import java.sql.SQLException;
 
 public class SignupPage {
@@ -107,10 +111,24 @@ public class SignupPage {
     }
 
     @FXML
-    protected void closeWindow() {
+    protected void closeWindowz() {
 
         stage.close();
     }
+
+    @FXML
+    protected void openLogin() throws IOException {
+        FXMLLoader fxmlLoader = new FXMLLoader(main.class.getResource("LoginPage.fxml"));
+        Stage loginStage = new Stage();
+        LoginPage newController = new LoginPage(db, loginStage);
+        fxmlLoader.setController(newController);
+        Scene scene = new Scene(fxmlLoader.load(), 633, 487);
+        loginStage.setTitle("Login");
+        loginStage.setScene(scene);
+        this.stage.hide();
+        loginStage.show();
+    }
+
 
     private boolean isValidEmail(String email) {
         String emailRegex = "^[A-Za-z0-9+_.-]+@(.+)$";

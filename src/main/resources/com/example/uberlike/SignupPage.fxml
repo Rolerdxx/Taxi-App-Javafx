@@ -23,7 +23,7 @@
                   <Font name="Bell MT Bold" size="19.0" />
                </font>
             </Button>
-            <Button fx:id="btnexit" layoutX="341.0" layoutY="397.0" mnemonicParsing="false" onAction="#closeWindow" styleClass="button-taxi" text="Exit">
+            <Button fx:id="btnexit" layoutX="341.0" layoutY="397.0" mnemonicParsing="false" onAction="#openLogin" styleClass="button-taxi" text="Already have an account?">
                <font>
                   <Font name="Bell MT Bold" size="19.0" />
                </font>
