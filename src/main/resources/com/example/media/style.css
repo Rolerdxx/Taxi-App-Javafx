@@ -6,6 +6,54 @@
     -fx-effect: dropshadow(three-pass-box, rgba(0,0,0,0.1), 10, 0, 0, 0);
 }
 
+/* Base font styling */
+.root {
+    -fx-font-family: 'Segoe UI', sans-serif; /* Use a modern, clean font */
+    -fx-font-size: 12px; /* Default font size */
+    -fx-text-fill: #333333; /* Default font color for readability */
+}
+
+/* Styling for titles and headers */
+.title {
+    -fx-font-size: 20px; /* Larger font size for titles */
+    -fx-font-weight: bold; /* Bold font weight for emphasis */
+    -fx-text-fill: #2E4053; /* A darker shade for titles */
+}
+
+/* Styling for labels */
+.label {
+    -fx-font-size: 14px; /* Slightly larger font size for labels */
+    -fx-text-fill: #5D6D7E; /* Subdued color for labels */
+}
+
+.button {
+    -fx-font-size: 15px; /* Comfortable reading size for buttons */
+    -fx-font-weight: bold; /* Bold text for button labels */
+}
+
+.input-field .text-field {
+    -fx-font-size: 14px; /* Clear and readable font size */
+    -fx-text-fill: #34495E; /* Darker text for better contrast */
+}
+
+.radio-button {
+    -fx-font-size: 14px; /* Clear size for radio button labels */
+    -fx-text-fill: #1A5276; /* A distinct color for differentiation */
+}
+.form-title {
+    -fx-font-size: 24px;
+    -fx-font-weight: bold;
+    -fx-text-fill: #2E4053; /* Dark shade for prominence */
+    -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.8), 3, 0, 0, 1); /* Subtle shadow for depth */
+}
+
+/* Styling for Input Field Labels */
+.input-label {
+    -fx-font-size: 14px;
+    -fx-text-fill: #5D6D7E; /* Professional subdued color */
+    -fx-font-weight: normal;
+}
+
 .button-taxi {
     -fx-background-color: #FFD700; /* Gold color, you might want to sample from your logo */
     -fx-text-fill: #333333; /* Dark text for better readability */

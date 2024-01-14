@@ -1,8 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.geometry.*?>
-<?import javafx.scene.image.*?>
 <?import javafx.scene.control.*?>
+<?import javafx.scene.image.*?>
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.shape.*?>
 
@@ -10,7 +9,6 @@
 <!--    <padding>-->
 <!--        <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />-->
 <!--    </padding>-->
-
 <!--    <Label fx:id="welcomeText" />-->
 <!--    <Button onAction="#onHelloButtonClick" prefHeight="46.0" prefWidth="99.0" text="showmap" />-->
 <!--   <Button fx:id="b2" mnemonicParsing="false" onAction="#goNext" text="Signup" />-->
@@ -28,7 +26,7 @@
         <TextField fx:id="emailField" layoutX="315.0" layoutY="68.0" prefHeight="44.0" prefWidth="228.0" promptText="Email address" styleClass="input-field" />
 
         <!-- Login button -->
-        <Button fx:id="loginButton" onAction="#onLoginButtonClick" layoutX="316.0" layoutY="200.0" mnemonicParsing="false" prefHeight="44.0" prefWidth="228.0" styleClass="button-taxi" text="Log in" />
+        <Button fx:id="loginButton" layoutX="316.0" layoutY="200.0" mnemonicParsing="false" onAction="#onLoginButtonClick" prefHeight="44.0" prefWidth="228.0" styleClass="button-taxi" text="Log in" />
 
         <!-- Forgotten password hyperlink -->
         <Hyperlink fx:id="forgotPasswordLink" layoutX="369.0" layoutY="254.0" text="Forgotten password?" />
@@ -37,10 +35,10 @@
         <Line fx:id="separatorLine" endX="100.0" layoutX="438.0" layoutY="290.0" startX="-100.0" stroke="#cfcfcf" />
 
         <!-- Create account button -->
-        <Button fx:id="createAccountButton" onAction="#goNext" layoutX="315.0" layoutY="309.0" mnemonicParsing="false" prefHeight="44.0" prefWidth="228.0" styleClass="button-taxi" text="Create new account" />
+        <Button fx:id="createAccountButton" layoutX="315.0" layoutY="309.0" mnemonicParsing="false" onAction="#goNext" prefHeight="44.0" prefWidth="228.0" styleClass="button-taxi" text="Create new account" />
 
         <!-- Logo image view -->
-        <ImageView fx:id="logoImageView" fitHeight="345.0" fitWidth="300.0" layoutY="27.0" pickOnBounds="true" preserveRatio="true">
+        <ImageView fx:id="logoImageView" fitHeight="345.0" fitWidth="300.0" layoutY="50.0" pickOnBounds="true" preserveRatio="true">
             <image>
                 <Image url="@../media/logo.png" />
             </image>
