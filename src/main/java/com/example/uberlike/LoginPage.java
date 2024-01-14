@@ -45,7 +45,8 @@ public class LoginPage {
         return userType;
     }
 
-
+    private int userid;
+    private String username;
 
     @FXML
     protected void onLoginButtonClick() throws IOException, SQLException {
@@ -60,7 +61,7 @@ public class LoginPage {
 
             if ("Passenger".equals(userType)) {
                 fxmlLoader = new FXMLLoader(main.class.getResource("ClientPage.fxml"));
-                ClientPage clientController = new ClientPage(primalStage, stage, db);
+                ClientPage clientController = new ClientPage(primalStage, stage, db, userid, username);
                 fxmlLoader.setController(clientController);
                 scene = new Scene(fxmlLoader.load());
                 clientController.Initiate();
@@ -83,14 +84,19 @@ public class LoginPage {
         }
     }
 
+
+
+
     private boolean authenticateUser(String email, String password) throws SQLException {
-        String sql = "SELECT PASSWORD FROM USERR WHERE EMAIL = ?";
+        String sql = "SELECT PASSWORD, ID, NAME FROM USERR WHERE EMAIL = ?";
         PreparedStatement pstmt = db.getC().prepareStatement(sql);
         pstmt.setString(1, email);
         ResultSet resultSet = pstmt.executeQuery();
 
         if (resultSet.next()) {
             String hashedPassword = resultSet.getString("PASSWORD");
+            userid = resultSet.getInt("ID");
+            username = resultSet.getString("NAME");
             pstmt.close();
             return BCrypt.checkpw(password, hashedPassword);
         }

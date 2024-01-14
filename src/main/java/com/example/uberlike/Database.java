@@ -1,7 +1,5 @@
 package com.example.uberlike;
 
-import javafx.scene.control.Alert;
-
 import java.sql.*;
 
 public class Database {
@@ -15,12 +13,13 @@ public class Database {
     public Database() {
         try {
             Class.forName("org.postgresql.Driver");
-            c = DriverManager.getConnection("jdbc:postgresql://localhost:5432/postgres",
-                    "postgres", "postgres");
+            c = DriverManager.getConnection("jdbc:postgresql://localhost:5432/dbtest",
+                    "postgres", "123");
             stmt = c.createStatement();
 
             createUsersTable();
             createRidesTable();
+            createOFFERTable();
 
             stmt.close();
         } catch (Exception e) {
@@ -52,8 +51,11 @@ public class Database {
         try {
             String sql = "CREATE TABLE IF NOT EXISTS RIDES(" +
                     "ID SERIAL PRIMARY KEY NOT NULL, " +
-                    " PASSENGER TEXT NOT NULL, " +
-                    " DESTINATION TEXT NOT NULL)";
+                    "PASSENGER INTEGER REFERENCES USERR(ID)," +
+                    "ORIGIN TEXT NOT NULL," +
+                    "DESTINATION TEXT NOT NULL," +
+                    "STATE TEXT NOT NULL" +
+                    ")";
             stmt.executeUpdate(sql);
             System.out.println("RIDES table created successfully");
         } catch (SQLException e) {
@@ -62,12 +64,30 @@ public class Database {
         }
     }
 
-    public void AddRides(String passenger, String destination) {
+    private void createOFFERTable() {
         try {
-            String sql = "INSERT INTO RIDES (PASSENGER, DESTINATION) VALUES (?, ?)";
+            String sql = "CREATE TABLE IF NOT EXISTS OFFERS(" +
+                    "ID SERIAL PRIMARY KEY NOT NULL, " +
+                    "RIDE INTEGER REFERENCES RIDES(ID)," +
+                    "DRIVER INTEGER REFERENCES USERR(ID)," +
+                    "STATE TEXT NOT NULL" +
+                    ")";
+            stmt.executeUpdate(sql);
+            System.out.println("OFFERS table created successfully");
+        } catch (SQLException e) {
+            e.printStackTrace();
+            System.err.println(e.getClass().getName() + ": " + e.getMessage());
+        }
+    }
+
+    public void AddRide(int passenger, String origin, String destination) {
+        try {
+            String sql = "INSERT INTO RIDES (PASSENGER, ORIGIN, DESTINATION, STATE) VALUES (?, ?, ?, ?)";
             PreparedStatement pstmt = c.prepareStatement(sql);
-            pstmt.setString(1, passenger);
-            pstmt.setString(2, destination);
+            pstmt.setInt(1, passenger);
+            pstmt.setString(2, origin);
+            pstmt.setString(3, destination);
+            pstmt.setString(4, "REQUESTED");
             pstmt.executeUpdate();
             pstmt.close();
 
