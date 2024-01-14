@@ -20,7 +20,7 @@ public class ClientPage {
 
     private final Stage mainStage;
     private final Stage seconsdstagel;
-    private UserController ussrconrol;
+   // private UserController ussrconrol;
     private Database db;
     private int userid;
     private String username;
@@ -62,10 +62,11 @@ public class ClientPage {
 
     @FXML
     private void requestride(){
-        if(!Objects.equals(origintxt.getValue(), "") && !Objects.equals(destxt.getValue(), "")){
+        if (!Objects.equals(origintxt.getValue(), "") && !Objects.equals(destxt.getValue(), "")) {
             WebEngine webEngine = map1.getEngine();
             webEngine.loadContent(MapGetter.Route(origintxt.getValue(),destxt.getValue(),GoogleMapsGeocoding.GET(origintxt.getValue())));
             db.AddRide(userid, origintxt.getValue(), destxt.getValue());
+
             requestpanel.setVisible(false);
             waitingpane.setVisible(true);
         }
@@ -97,7 +98,7 @@ public class ClientPage {
 //
 //        offerbox.getChildren().addAll(new HBox(nameLabel, priceLabel),
 //                new HBox(nameValueLabel, priceValueLabel));
-        try (Statement statement = Database.c.createStatement()) {
+        try (Statement statement = db.getC().createStatement()) {
             statement.execute("LISTEN ch1");
 
             while (true) {
@@ -108,7 +109,7 @@ public class ClientPage {
                 System.out.println("Waiting for notifications...");
 
                 // Process notifications
-                org.postgresql.PGNotification[] notifications = ((org.postgresql.PGConnection) Database.c).getNotifications();
+                org.postgresql.PGNotification[] notifications = ((org.postgresql.PGConnection) db.getC()).getNotifications();
                 if (notifications != null) {
                     for (org.postgresql.PGNotification notification : notifications) {
                         System.out.println("Received notification: " + notification.getName());

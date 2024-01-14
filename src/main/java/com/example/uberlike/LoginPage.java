@@ -33,7 +33,7 @@ public class LoginPage {
     private String getUserType(String email) throws SQLException {
         String userType = null;
         String sql = "SELECT TYPE FROM USERR WHERE EMAIL = ?";
-        try (PreparedStatement pstmt = Database.c.prepareStatement(sql)) {
+        try (PreparedStatement pstmt = db.getC().prepareStatement(sql)) {
             pstmt.setString(1, email);
             try (ResultSet resultSet = pstmt.executeQuery()) {
                 if (resultSet.next()) {

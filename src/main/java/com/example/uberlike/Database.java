@@ -1,9 +1,8 @@
 package com.example.uberlike;
-
 import java.sql.*;
 
 public class Database {
-    public static Connection c;
+    public Connection c;
     private Statement stmt;
 
     public Connection getC() {
@@ -130,5 +129,6 @@ public class Database {
             return false;
         }
     }
+
 
 }
