@@ -1,6 +1,8 @@
 package com.example.uberlike;
 
 import javafx.scene.control.Alert;
+import org.postgresql.PGConnection;
+import org.postgresql.PGNotification;
 
 import java.sql.*;
 
@@ -16,11 +18,12 @@ public class Database {
         try {
             Class.forName("org.postgresql.Driver");
             c = DriverManager.getConnection("jdbc:postgresql://localhost:5432/postgres",
-                    "postgres", "postgres");
+                    "postgres", "hamza2001");
             stmt = c.createStatement();
 
             createUsersTable();
             createRidesTable();
+            createPendingRidesTable();
 
             stmt.close();
         } catch (Exception e) {
@@ -53,6 +56,7 @@ public class Database {
             String sql = "CREATE TABLE IF NOT EXISTS RIDES(" +
                     "ID SERIAL PRIMARY KEY NOT NULL, " +
                     " PASSENGER TEXT NOT NULL, " +
+                    " LOCATION TEXT NOT NULL, " +
                     " DESTINATION TEXT NOT NULL)";
             stmt.executeUpdate(sql);
             System.out.println("RIDES table created successfully");
@@ -61,13 +65,28 @@ public class Database {
             System.err.println(e.getClass().getName() + ": " + e.getMessage());
         }
     }
-
-    public void AddRides(String passenger, String destination) {
+    private void createPendingRidesTable() {
         try {
-            String sql = "INSERT INTO RIDES (PASSENGER, DESTINATION) VALUES (?, ?)";
+            String sql = "CREATE TABLE IF NOT EXISTS PENDING_RIDES(" +
+                    "ID SERIAL PRIMARY KEY NOT NULL, " +
+                    " PASSENGER TEXT NOT NULL, " +
+                    " LOCATION TEXT NOT NULL, " +
+                    " DESTINATION TEXT NOT NULL)";
+            stmt.executeUpdate(sql);
+            System.out.println("PENDING_RIDES table created successfully");
+        } catch (SQLException e) {
+            e.printStackTrace();
+            System.err.println(e.getClass().getName() + ": " + e.getMessage());
+        }
+    }
+
+    public void AddRides(String passenger, String location,String destination) {
+        try {
+            String sql = "INSERT INTO RIDES (PASSENGER, LOCATION,DESTINATION) VALUES (?,?,?)";
             PreparedStatement pstmt = c.prepareStatement(sql);
             pstmt.setString(1, passenger);
-            pstmt.setString(2, destination);
+            pstmt.setString(2, location);
+            pstmt.setString(3, destination);
             pstmt.executeUpdate();
             pstmt.close();
 
@@ -110,5 +129,6 @@ public class Database {
             return false;
         }
     }
+
 
 }

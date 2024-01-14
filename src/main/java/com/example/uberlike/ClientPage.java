@@ -52,13 +52,19 @@ public class ClientPage {
     public void Initiate(){
         WebEngine webEngine = map1.getEngine();
         webEngine.loadContent(MapGetter.GET());
+        db = new Database();
     }
 
     @FXML
     private void requestride(){
-        if(!Objects.equals(origintxt.getValue(), "") && !Objects.equals(destxt.getValue(), "")){
+        if (!Objects.equals(origintxt.getValue(), "") && !Objects.equals(destxt.getValue(), "")) {
             WebEngine webEngine = map1.getEngine();
-            webEngine.loadContent(MapGetter.Route(origintxt.getValue(),destxt.getValue(),GoogleMapsGeocoding.GET(origintxt.getValue())));
+            webEngine.loadContent(MapGetter.Route(origintxt.getValue(), destxt.getValue(), GoogleMapsGeocoding.GET(origintxt.getValue())));
+            String passengerName = "PassengerName";
+            String location = origintxt.getValue();
+            String destination = destxt.getValue();
+
+            db.AddRides(passengerName, location, destination);
             requestpanel.setVisible(false);
             waitingpane.setVisible(true);
         }

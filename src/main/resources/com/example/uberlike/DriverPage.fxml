@@ -11,7 +11,7 @@
         <VBox fx:id="rideCardsContainer" alignment="CENTER" layoutX="607.0" prefHeight="400.0" prefWidth="200.0" spacing="10.0" styleClass="ride-cards-container">
         </VBox>
         <HBox alignment="CENTER_LEFT" layoutX="635.0" layoutY="31.0" prefHeight="43.0" prefWidth="94.0" spacing="10.0" />
-        <Label layoutX="76.0" layoutY="19.0" style="-fx-font-size: 16; -fx-font-weight: bold;" text="Passenger Offers" />
+        <Label layoutX="480.0" layoutY="19.0" style="-fx-font-size: 16; -fx-font-weight: bold;" text="Passenger Offers" />
     </children>
     <stylesheets>
         <URL value="@styles.css" />
