@@ -3,15 +3,26 @@
 <?import java.net.*?>
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
+<?import javafx.scene.shape.*?>
 <?import javafx.scene.web.*?>
 
 <AnchorPane fx:id="driverPage" prefHeight="434.0" prefWidth="876.0" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1">
     <children>
         <WebView fx:id="map" layoutX="0.0" layoutY="0.0" prefHeight="434.0" prefWidth="876.0" />
-        <VBox fx:id="rideCardsContainer" alignment="CENTER" layoutX="181.0" layoutY="60.0" prefHeight="340.0" prefWidth="417.0" spacing="10.0" styleClass="ride-cards-container">
-        </VBox>
+      <Pane fx:id="rideinfo" layoutX="597.0" layoutY="64.0" prefHeight="236.0" prefWidth="245.0" visible="false">
+         <children>
+             <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#f7fcffcb" height="236.0" stroke="BLACK" strokeType="INSIDE" styleClass="box-shadow" width="245.0" />
+            <Button layoutX="34.0" layoutY="149.0" mnemonicParsing="false" prefHeight="43.0" prefWidth="109.0" text="Complete Ride" />
+            <Label fx:id="passname" layoutX="34.0" layoutY="26.0" text="Label" />
+            <Label fx:id="originlab" layoutX="34.0" layoutY="64.0" text="Label" />
+            <Label fx:id="Destibnationlab" layoutX="34.0" layoutY="103.0" text="Label" />
+         </children></Pane>
+        <ScrollPane fx:id="offerscard" layoutX="26.0" layoutY="64.0" prefHeight="310.0" prefWidth="340.0">
+            <VBox fx:id="rideCardsContainer" alignment="CENTER" layoutX="181.0" layoutY="60.0" prefHeight="308.0" prefWidth="336.0" spacing="10.0" styleClass="ride-cards-container">
+            </VBox>
+        </ScrollPane>
         <HBox alignment="CENTER_LEFT" layoutX="635.0" layoutY="31.0" prefHeight="43.0" prefWidth="94.0" spacing="10.0" />
-        <Label layoutX="480.0" layoutY="19.0" style="-fx-font-size: 16; -fx-font-weight: bold;" text="Passenger Offers" />
+        <Label layoutX="33.0" layoutY="19.0" prefHeight="25.0" prefWidth="131.0" style="-fx-font-size: 16; -fx-font-weight: bold;" text="Passenger Offers" />
     </children>
     <stylesheets>
         <URL value="@styles.css" />

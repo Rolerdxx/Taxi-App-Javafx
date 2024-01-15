@@ -67,7 +67,7 @@ public class LoginPage {
                 clientController.Initiate();
             } else if ("Driver".equals(userType)) {
                 fxmlLoader = new FXMLLoader(main.class.getResource("DriverPage.fxml"));
-                DriverPage driverController = new DriverPage();
+                DriverPage driverController = new DriverPage(userid);
                 fxmlLoader.setController(driverController);
                 scene = new Scene(fxmlLoader.load());
             } else {
@@ -75,7 +75,7 @@ public class LoginPage {
                 return;
             }
 
-            stage.setTitle("Welcome!");
+            stage.setTitle("Taxi app");
             stage.setScene(scene);
             stage.show();
             primalStage.hide();

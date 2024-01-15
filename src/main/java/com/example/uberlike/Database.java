@@ -69,6 +69,7 @@ public class Database {
                     "ID SERIAL PRIMARY KEY NOT NULL, " +
                     "RIDE INTEGER REFERENCES RIDES(ID)," +
                     "DRIVER INTEGER REFERENCES USERR(ID)," +
+                    "PRICE INTEGER," +
                     "STATE TEXT NOT NULL" +
                     ")";
             stmt.executeUpdate(sql);
@@ -93,6 +94,44 @@ public class Database {
         } catch (SQLException e) {
             e.printStackTrace();
 
+        }
+    }
+
+
+    public void AddOffer(int ride, int driver, int price) {
+        try {
+            String sql = "INSERT INTO OFFERS (RIDE, DRIVER, PRICE, STATE) VALUES (?, ?, ?, ?)";
+            PreparedStatement pstmt = c.prepareStatement(sql);
+            pstmt.setInt(1, ride);
+            pstmt.setInt(2, driver);
+            pstmt.setInt(3, price);
+            pstmt.setString(4, "WAITING");
+            pstmt.executeUpdate();
+            pstmt.close();
+
+        } catch (SQLException e) {
+            e.printStackTrace();
+
+        }
+    }
+
+    public void AcceptOffer(int offid, int rideid){
+        try {
+            String sql = "UPDATE OFFERS SET STATE='ACCEPTED' WHERE ID="+offid;
+            PreparedStatement pstmt = c.prepareStatement(sql);
+            pstmt.executeUpdate();
+            pstmt.close();
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+
+        try {
+            String sql = "UPDATE RIDES SET STATE='ONGOING' WHERE ID="+rideid;
+            PreparedStatement pstmt = c.prepareStatement(sql);
+            pstmt.executeUpdate();
+            pstmt.close();
+        } catch (SQLException e) {
+            e.printStackTrace();
         }
     }
 
