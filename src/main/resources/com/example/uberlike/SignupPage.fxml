@@ -1,62 +1,41 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import javafx.scene.control.*?>
+<?import javafx.scene.image.*?>
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.text.*?>
 
 <AnchorPane fx:id="signupPane" prefHeight="400.0" prefWidth="520.0" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1">
    <AnchorPane xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1">
-      <AnchorPane layoutX="-14.0" layoutY="-2.0" prefHeight="487.0" prefWidth="633.0" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1">
+      <AnchorPane layoutX="-14.0" layoutY="-2.0" prefHeight="487.0" prefWidth="633.0" stylesheets="@../media/style.css" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1">
          <children>
-            <Label fx:id="name" layoutX="50.0" layoutY="100.0" text="Name">
-               <font>
-                  <Font size="18.0" />
-               </font>
-            </Label>
-            <AnchorPane prefHeight="82.0" prefWidth="633.0" style="-fx-background-color: green;">
-               <children>
-                  <Label layoutX="120.0" layoutY="15.0" text="Sign Up">
-                     <font>
-                        <Font name="Bell MT Italic" size="41.0" />
-                     </font>
-                  </Label>
-               </children>
-            </AnchorPane>
-            <Label fx:id="email" layoutX="50.0" layoutY="150.0" text="Email">
-               <font>
-                  <Font size="18.0" />
-               </font>
-            </Label>
-            <Label fx:id="password" layoutX="37.0" layoutY="256.0" text="Password">
-               <font>
-                  <Font size="18.0" />
-               </font>
-            </Label>
-            <Label fx:id="type" layoutX="52.0" layoutY="315.0" text="Type">
-               <font>
-                  <Font size="18.0" />
-               </font>
-            </Label>
-            <TextField fx:id="inputName" layoutX="150.0" layoutY="100.0" />
-            <TextField fx:id="inputEmail" layoutX="150.0" layoutY="150.0" />
-            <PasswordField fx:id="inputPassword" layoutX="150.0" layoutY="257.0" />
-            <Button fx:id="btnregister" layoutX="202.0" layoutY="407.0" mnemonicParsing="false" onAction="#signUp" text="Register">
-               <font>
-                  <Font name="Bell MT Bold" size="19.0" />
-               </font></Button>
-            <Button fx:id="btnexit" layoutX="341.0" layoutY="407.0" mnemonicParsing="false" onAction="#closeWindow" text="Exit">
+            <Label fx:id="formTitle" layoutX="180.0" layoutY="20.0" styleClass="form-title" text="Join today." />
+            <Label fx:id="labelName" layoutX="55.0" layoutY="109.0" styleClass="input-label" text="Name:" />
+            <Label fx:id="labelEmail" layoutX="55.0" layoutY="159.0" styleClass="input-label" text="Email:" />
+            <Label fx:id="labelPassword" layoutX="56.0" layoutY="266.0" styleClass="input-label" text="Password:" />
+            <Label fx:id="labelPhone" layoutX="54.0" layoutY="210.0" styleClass="input-label" text="Phone:" />
+            <Label fx:id="" layoutX="54.0" layoutY="316.0" styleClass="input-label" text="Type:" />
+            <TextField fx:id="inputName" layoutX="150.0" layoutY="100.0" styleClass="input-field" />
+            <TextField fx:id="inputEmail" layoutX="150.0" layoutY="150.0" styleClass="input-field" />
+            <PasswordField fx:id="inputPassword" layoutX="150.0" layoutY="257.0" styleClass="input-field" />
+            <Button fx:id="btnregister" layoutX="202.0" layoutY="397.0" mnemonicParsing="false" onAction="#signUp" styleClass="button-taxi" text="Register">
                <font>
                   <Font name="Bell MT Bold" size="19.0" />
                </font>
             </Button>
+            <Button fx:id="btnexit" layoutX="341.0" layoutY="397.0" mnemonicParsing="false" onAction="#openLogin" styleClass="button-taxi" text="Already have an account?">
+               <font>
+                  <Font name="Bell MT Bold" size="19.0" />
+               </font>
+            </Button>
+            <ImageView fx:id="logoImageView" fitHeight="345.0" fitWidth="300.0" layoutX="317.0" layoutY="51.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../media/logo.png" />
+               </image>
+            </ImageView>
             <RadioButton fx:id="driverRadio" layoutX="150.0" layoutY="320.0" mnemonicParsing="false" text="Driver" />
             <RadioButton fx:id="passengerRadio" layoutX="251.0" layoutY="320.0" mnemonicParsing="false" text="Passenger" />
-            <TextField fx:id="inputPhone" layoutX="150.0" layoutY="201.0" />
-            <Label fx:id="password1" layoutX="46.0" layoutY="201.0" text="Phone">
-               <font>
-                  <Font size="18.0" />
-               </font>
-            </Label>
+            <TextField fx:id="inputPhone" layoutX="150.0" layoutY="201.0" styleClass="input-field" />
          </children>
       </AnchorPane>
    </AnchorPane>
